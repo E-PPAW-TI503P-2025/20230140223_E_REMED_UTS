@@ -135,85 +135,55 @@ curl "http://localhost:3000/api/borrow/logs?userId=1&bookId=1&limit=50" \
   -H "x-user-role: admin"
 ```
 
-## 5) Screenshot yang Diminta Dosen
-
-Silakan buat folder `screenshots/` lalu tempelkan screenshot sesuai daftar ini.
-
 ### A. Screenshot API (Postman)
 
 1) GET semua buku
 
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/01-postman-get-books.png`
+![get all books with postman](screenshots/01-postman-get-books.png)
 
 2) POST tambah buku (Admin)
 
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/02-postman-admin-create-book.png`
+![add new book with postman](screenshots/02-postman-admin-create-book.png)
 
 3) PUT update buku (Admin)
 
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/03-postman-admin-update-book.png`
+![update book with postman](screenshots/03-postman-admin-update-book.png)
 
 4) DELETE hapus buku (Admin)
 
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/04-postman-admin-delete-book.png`
+![delete book with postman](screenshots/04-postman-admin-delete-book.png)
 
 5) POST borrow buku (User) + lokasi
 
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/05-postman-user-borrow.png`
+![borrow book with postman](screenshots/05-postman-user-borrow.png)
 
 ### B. Screenshot UI Web
 
 1) Halaman utama (list buku)
 
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/06-ui-home.png`
+![ss ui home page](screenshots/06-ui-home.png)
 
 2) Mode admin (form create/update)
 
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/07-ui-admin.png`
+![ss ui admin mode page](screenshots/07-ui-admin.png)
 
 3) Mode user (form borrow + geolocation)
 
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/08-ui-user-borrow.png`
+![ss ui user mode page](screenshots/08-ui-user-borrow.png)
 
 ### C. Screenshot Struktur Database
 
-1) Struktur tabel `books`
+1) Contoh isi data setelah tambah buku (minimal 1 row di `books`)
 
-[tempelkan ss di sini]
+![ss books table](screenshots/09-db-books.png)
 
-Contoh file: `screenshots/09-db-books.png`
+2) Contoh isi data setelah borrow (minimal 1 row di `borrow_logs`)
 
-2) Struktur tabel `borrow_logs`
-
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/10-db-borrow-logs.png`
-
-3) Contoh isi data setelah borrow (minimal 1 row di `borrow_logs`)
-
-[tempelkan ss di sini]
-
-Contoh file: `screenshots/11-db-borrow-logs-data.png`
+![ss borrow_logs table](screenshots/10-db-borrow-logs.png)
 
 ## 6) Panduan Lengkap Test di Postman
 
-Bagian ini dibuat supaya kamu bisa membuktikan semua fitur sesuai soal (tanpa login/JWT).
+Bagian ini dibuat supaya bisa membuktikan semua fitur sesuai soal (tanpa login/JWT).
 
 ### A. Persiapan
 
