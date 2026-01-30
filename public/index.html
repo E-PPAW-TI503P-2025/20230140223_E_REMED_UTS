@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library System (Geolocation)</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Library System with Geolocation</h1>
+      <p class="muted">Simulasi role via header: <code>x-user-role</code> dan <code>x-user-id</code>.</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>Mode Akses</h2>
+        <div class="grid">
+          <label>
+            Role
+            <select id="role">
+              <option value="public">Public</option>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </select>
+          </label>
+
+          <label>
+            User ID (wajib untuk User)
+            <input id="userId" type="number" min="1" placeholder="contoh: 1" />
+          </label>
+
+          <div class="actions">
+            <button id="refresh">Refresh Buku</button>
+          </div>
+        </div>
+        <p class="hint">Catatan: Admin bisa CRUD buku. User bisa meminjam (borrow) dan sistem menyimpan latitude/longitude.</p>
+      </section>
+
+      <section class="card">
+        <div class="row">
+          <h2>Daftar Buku</h2>
+          <div class="row-actions">
+            <button id="openCreate" class="secondary">Tambah Buku (Admin)</button>
+          </div>
+        </div>
+
+        <div id="booksState" class="muted">Memuat…</div>
+        <div class="table-wrap">
+          <table id="booksTable" class="table" hidden>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Judul</th>
+                <th>Author</th>
+                <th>Stock</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card" id="adminCard" hidden>
+        <h2>Form Admin (Create / Update)</h2>
+        <form id="adminForm" class="grid">
+          <input id="bookId" type="number" min="1" placeholder="Book ID (isi untuk update)" />
+          <input id="title" type="text" placeholder="Title" required />
+          <input id="author" type="text" placeholder="Author" required />
+          <input id="stock" type="number" min="0" placeholder="Stock" required />
+
+          <div class="actions">
+            <button type="submit">Simpan</button>
+            <button type="button" id="cancelAdmin" class="secondary">Tutup</button>
+          </div>
+        </form>
+        <p class="hint">Jika <b>Book ID</b> diisi maka update, jika kosong maka create.</p>
+      </section>
+
+      <section class="card" id="borrowCard" hidden>
+        <h2>Pinjam Buku (User)</h2>
+        <form id="borrowForm" class="grid">
+          <input id="borrowBookId" type="number" min="1" placeholder="Book ID" required />
+          <input id="latitude" type="number" step="any" placeholder="Latitude" required />
+          <input id="longitude" type="number" step="any" placeholder="Longitude" required />
+
+          <div class="actions">
+            <button type="button" id="useGeo" class="secondary">Ambil Lokasi Otomatis</button>
+            <button type="submit">Borrow</button>
+          </div>
+        </form>
+        <p class="hint">Jika browser menolak lokasi, isi manual latitude/longitude.</p>
+      </section>
+
+      <section class="card">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <h2>Log</h2>
+          <button id="clearLog" class="secondary" type="button">Clear Log</button>
+        </div>
+        <pre id="log" class="log"></pre>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <small class="muted">UCP 1 - Pengembangan Aplikasi Web</small>
+    </footer>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
